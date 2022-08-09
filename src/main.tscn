@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/locations/base/base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/character/character.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( 4, 4 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( -98, 781 )
+scale = Vector2( 10, 100 )
+shape = SubResource( 2 )
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2( 7168, 0 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2( 83, 826 )
+scale = Vector2( 10, 100 )
+shape = SubResource( 2 )
+
+[node name="Map" type="Path2D" parent="."]
+curve = SubResource( 3 )
+
+[node name="Character" parent="Map" instance=ExtResource( 2 )]
+position = Vector2( 377, 1217 )
+scale = Vector2( 6, 6 )
+
+[node name="Camera2D" type="Camera2D" parent="Map/Character"]
+position = Vector2( 3.8147e-06, -1.33334 )
+current = true
