@@ -1,4 +1,4 @@
-extends Path2D
+extends AnimatedSprite
 
 
 # Declare member variables here. Examples:
@@ -10,5 +10,7 @@ extends Path2D
 func _ready() -> void:
 	pass # Replace with function body.
 
-#func get_left_bound() -> float:
-#	return 
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta: float) -> void:
+#	pass
